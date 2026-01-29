@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación | KudosForge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0052CC;
+            --secondary-color: #36B37E;
+            --accent-color: #FFAB00;
+            --dark-color: #172B4D;
+            --light-color: #F4F5F7;
+            --text-color: #42526E;
+            --white: #FFFFFF;
+            --gray: #DFE1E6;
+            --shadow: 0 4px 12px rgba(0, 82, 204, 0.1);
+            --border-radius: 6px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin-top: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #0040A0;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #2E8B6B;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, #F4F5F7 0%, #E6EDFF 100%);
+            padding: 140px 0 60px;
+            margin-top: 80px;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto 0;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 20px 16px 50px;
+            border: 2px solid var(--gray);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        /* Content */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-section h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar ul li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: var(--border-radius);
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .sidebar ul li a:hover {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        .sidebar ul li a.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .sidebar ul li a i {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .content-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .code-block {
+            background-color: #1E1E1E;
+            color: #D4D4D4;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .code-block .comment {
+            color: #6A9955;
+        }
+
+        .code-block .keyword {
+            color: #569CD6;
+        }
+
+        .code-block .string {
+            color: #CE9178;
+        }
+
+        .code-block .function {
+            color: #DCDCAA;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .info-card {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .step-card {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .step-content h4 {
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .highlight-box.info {
+            border-left-color: var(--primary-color);
+            background-color: #DEEBFF;
+        }
+
+        .highlight-box.success {
+            border-left-color: var(--secondary-color);
+            background-color: #E3FCEF;
+        }
+
+        .highlight-box.warning {
+            border-left-color: #FF5630;
+            background-color: #FFEBE6;
+        }
+
+        .faq-item {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+        }
+
+        .faq-item h4 {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item h4 i {
+            color: var(--primary-color);
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+        }
+
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .resource-link:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .resource-link i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo .logo {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                display: none;
+                z-index: 999;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            .mobile-menu ul {
+                list-style: none;
+            }
+
+            .mobile-menu ul li {
+                margin-bottom: 15px;
+            }
+
+            .mobile-menu ul li a {
+                display: block;
+                padding: 10px;
+                color: var(--dark-color);
+                font-weight: 500;
+            }
+
+            .mobile-menu ul li a:hover {
+                color: var(--primary-color);
+                background-color: var(--light-color);
+                border-radius: var(--border-radius);
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .step-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <i class="fas fa-medal"></i>
+                <span>KudosForge</span>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/#features">Funcionalidades</a></li>
+                    <li><a href="/#pricing">Precios</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+                    <li><a href="/privacy">Privacidad</a></li>
+                    <li><a href="/terms">Términos</a></li>
+                    <li><a href="/docs" class="active">Docs</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#features">Funcionalidades</a></li>
+                <li><a href="/#pricing">Precios</a></li>
+                <li><a href="/contact">Contacto</a></li>
+                <li><a href="/privacy">Privacidad</a></li>
+                <li><a href="/terms">Términos</a></li>
+                <li><a href="/docs">Docs</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Documentación</h1>
+            <p>Todo lo que necesitas saber para instalar, configurar y aprovechar al máximo KudosForge en tu equipo.</p>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar en la documentación...">
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="docs-layout">
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <h4>Primeros pasos</h4>
+                        <ul>
+                            <li><a href="#introduction" class="active"><i class="fas fa-star"></i> Introducción</a></li>
+                            <li><a href="#installation"><i class="fas fa-download"></i> Instalación</a></li>
+                            <li><a href="#configuration"><i class="fas fa-cog"></i> Configuración</a></li>
+                            <li><a href="#quick-start"><i class="fas fa-bolt"></i> Inicio rápido</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h4>Uso del producto</h4>
+                        <ul>
+                            <li><a href="#sending-kudos"><i class="fas fa-paper-plane"></i> Enviar Kudos</a></li>
+                            <li><a href="#wall-of-fame"><i class="fas fa-trophy"></i> Wall of Fame</a></li>
+                            <li><a href="#reports"><i class="fas fa-chart-bar"></i> Reportes</a></li>
+                            <li><a href="#gamification"><i class="fas fa-gamepad"></i> Gamificación</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h4>Administración</h4>
+                        <ul>
+                            <li><a href="#user-management"><i class="fas fa-users"></i> Gestión de usuarios</a></li>
+                            <li><a href="#permissions"><i class="fas fa-shield-alt"></i> Permisos</a></li>
+                            <li><a href="#integrations"><i class="fas fa-plug"></i> Integraciones</a></li>
+                            <li><a href="#api"><i class="fas fa-code"></i> API</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h4>Recursos</h4>
+                        <ul>
+                            <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                            <li><a href="#troubleshooting"><i class="fas fa-tools"></i> Solución de problemas</a></li>
+                            <li><a href="#support"><i class="fas fa-life-ring"></i> Soporte</a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <main class="main-content">
+                    <div class="content-card" id="introduction">
+                        <h2>Introducción a KudosForge</h2>
+                        <p>KudosForge es una aplicación de reconocimiento de empleados diseñada específicamente para equipos de ingeniería que utilizan Jira. Permite enviar "Kudos" (reconocimientos) directamente desde los tickets de Jira, fomentando una cultura de gratitud y reconocimiento.</p>
+
+                        <div class="info-grid">
+                            <div class="info-card">
+                                <i class="fas fa-bolt"></i>
+                                <h4>Rápido</h4>
+                                <p>Instalación en minutos, cero configuración requerida</p>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Seguro</h4>
+                                <p>Arquitectura Zero-Trust con datos en Atlassian</p>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Analítico</h4>
+                                <p>Reportes detallados para Engineering Managers</p>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-gamepad"></i>
+                                <h4>Divertido</h4>
+                                <p>Gamificación con rachas, niveles y logros</p>
+                            </div>
+                        </div>
+
+                        <h3>Tipos de Kudos disponibles</h3>
+                        <ul>
+                            <li><strong>Solucionador:</strong> Para quien resolvió un bug difícil</li>
+                            <li><strong>Innovador:</strong> Para soluciones creativas e ingeniosas</li>
+                            <li><strong>Colaborador:</strong> Para quienes ayudan al equipo</li>
+                            <li><strong>Mentor:</strong> Para quienes comparten conocimiento</li>
+                            <li><strong>Defensor:</strong> Para quienes protegen la calidad</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card" id="installation">
+                        <h2>Instalación</h2>
+                        <p>La instalación de KudosForge es rápida y sencilla. Sigue estos pasos para comenzar:</p>
+
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Accede al Marketplace</h4>
+                                <p>Ve al <a href="#">Marketplace de Atlassian</a> y busca "KudosForge"</p>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Selecciona tu sitio</h4>
+                                <p>Elige el sitio de Atlassian donde deseas instalar la aplicación</p>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Autoriza la instalación</h4>
+                                <p>Revisa los permisos requeridos y autoriza la instalación</p>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Selecciona proyectos</h4>
+                                <p>Elige los proyectos donde deseas activar KudosForge</p>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box info">
+                            <p style="margin-bottom: 0;"><strong>Nota:</strong> La instalación se completa automáticamente. No se requiere configuración adicional para empezar a usar KudosForge.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="configuration">
+                        <h2>Configuración</h2>
+                        <p>Aunque KudosForge funciona sin configuración, puedes personalizar varios aspectos según las necesidades de tu equipo.</p>
+
+                        <h3>Configuración general</h3>
+                        <div class="code-block">
+<span class="comment">// Ejemplo de configuración en el panel de administración</span>
+{
+  <span class="keyword">"enable_wall_of_fame"</span>: <span class="keyword">true</span>,
+  <span class="keyword">"enable_gamification"</span>: <span class="keyword">true</span>,
+  <span class="keyword">"show_stats_dashboard"</span>: <span class="keyword">true</span>,
+  <span class="keyword">"kudos_types"</span>: [<span class="string">"solver"</span>, <span class="string">"innovator"</span>, <span class="string">"collaborator"</span>],
+  <span class="keyword">"notification_channel"</span>: <span class="string">"slack"</span>
+}
+                        </div>
+
+                        <h3>Tipos de notificaciones</h3>
+                        <ul>
+                            <li><strong>Notificaciones in-app:</strong> Aparece directamente en Jira</li>
+                            <li><strong>Email:</strong> Envío de email al recibir un Kudo</li>
+                            <li><strong>Slack:</strong> Integración con canales de Slack</li>
+                            <li><strong>Microsoft Teams:</strong> Notificaciones en Teams</li>
+                        </ul>
+
+                        <h3>Personalización de badges</h3>
+                        <p>Puedes personalizar los badges y emoticonos utilizados para cada tipo de Kudo desde el panel de administración.</p>
+                    </div>
+
+                    <div class="content-card" id="quick-start">
+                        <h2>Inicio rápido</h2>
+                        <p>En menos de 5 minutos, tu equipo puede estar enviando reconocimientos. Sigue esta guía:</p>
+
+                        <h3>Día 1: Configuración básica</h3>
+                        <ol style="margin-left: 25px; margin-top: 15px;">
+                            <li style="margin-bottom: 10px;">Instala KudosForge desde el Marketplace</li>
+                            <li style="margin-bottom: 10px;">Comparte el link de este article con tu equipo</li>
+                            <li style="margin-bottom: 10px;">Envía el primer Kudo como ejemplo</li>
+                            <li style="margin-bottom: 10px;">Anima a todos a enviar al menos un Kudo esa semana</li>
+                        </ol>
+
+                        <div class="highlight-box success">
+                            <p style="margin-bottom: 0;"><strong>Tip:</strong> Los equipos que envían al menos 5 Kudos por persona por semana ven un aumento del 23% en satisfacción laboral según nuestros estudios.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="sending-kudos">
+                        <h2>Enviar Kudos</h2>
+                        <p>Enviar un Kudo es rápido y está integrado directamente en la interfaz de Jira.</p>
+
+                        <h3>Desde un ticket</h3>
+                        <ol style="margin-left: 25px; margin-top: 15px;">
+                            <li style="margin-bottom: 10px;">Abre cualquier ticket de Jira</li>
+                            <li style="margin-bottom: 10px;">Busca el panel de KudosForge en la barra lateral</li>
+                            <li style="margin-bottom: 10px;">Selecciona el tipo de Kudo (Solucionador, Innovador, etc.)</li>
+                            <li style="margin-bottom: 10px;">Opcionalmente añade un mensaje personalizado</li>
+                            <li style="margin-bottom: 10px;">Haz clic en "Enviar Kudo"</li>
+                        </ol>
+
+                        <h3>Atajos disponibles</h3>
+                        <div class="code-block">
+<span class="comment">// Atajos de teclado para envío rápido</span>
+<span class="keyword">Ctrl</span> + <span class="keyword">K</span> - Abrir panel de Kudos
+<span class="keyword">Ctrl</span> + <span class="keyword">Shift</span> + <span class="keyword">K</span> - Enviar Kudo rápido al assignee
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="wall-of-fame">
+                        <h2>Wall of Fame</h2>
+                        <p>El Wall of Fame es un tablero visual que muestra los reconocimientos más destacados de tu proyecto.</p>
+
+                        <h3>Características</h3>
+                        <ul>
+                            <li><strong>Top contributors:</strong> Los usuarios con más Kudos del mes</li>
+                            <li><strong>Recent kudos:</strong> Los reconocimientos más recientes</li>
+                            <li><strong>Streak leaders:</strong> Usuarios con las rachas más largas</li>
+                            <li><strong>Badges earned:</strong> Logros desbloqueados recientemente</li>
+                        </ul>
+
+                        <h3>Filtros disponibles</h3>
+                        <ul>
+                            <li>Por período (semana, mes, trimestre, año)</li>
+                            <li>Por tipo de Kudo</li>
+                            <li>Por usuario o equipo</li>
+                            <li>Por proyecto</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card" id="reports">
+                        <h2>Reportes</h2>
+                        <p>KudosForge genera reportes detallados para ayudar a los Engineering Managers a entender la dinámica del equipo.</p>
+
+                        <h3>Tipos de reportes</h3>
+                        <ul>
+                            <li><strong>Reporte de participación:</strong> % del equipo que envía y recibe Kudos</li>
+                            <li><strong>Reporte de habilidades:</strong> Distribución por tipo de Kudo</li>
+                            <li><strong>Reporte de tendencias:</strong> Evolución temporal de reconocimientos</li>
+                            <li><strong>Reporte de impacto:</strong> Correlación con métricas de productividad</li>
+                        </ul>
+
+                        <div class="highlight-box info">
+                            <p style="margin-bottom: 0;"><strong>Nota:</strong> Los reportes son ideales para Performance Reviews y 1-on-1s. Usa los datos para complementar las conversaciones sobre contribuciones del equipo.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="faq">
+                        <h2>Preguntas frecuentes</h2>
+
+                        <div class="faq-item">
+                            <h4><i class="fas fa-question-circle"></i> ¿KudosForge funciona con Jira Cloud y Server?</h4>
+                            <p>Actualmente KudosForge está disponible únicamente para Jira Cloud. Estamos evaluando el soporte para Jira Server/Data Center en futuras versiones.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4><i class="fas fa-question-circle"></i> ¿Puedo migrar de otro sistema de reconocimiento?</h4>
+                            <p>Sí,Ofrecemos herramientas de migración para importar el historial de reconocimientos desde otras plataformas. Contacta a nuestro equipo de soporte para asistencia.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4><i class="fas fa-question-circle"></i> ¿Los Kudos afectan las métricas de Jira?</h4>
+                            <p>No, KudosForge es completamente independiente de las métricas de Jira. Los reconocimientos no afectan story points, velocidad ni otras métricas de rendimiento.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4><i class="fas fa-question-circle"></i> ¿Puedo exportar mis datos?</h4>
+                            <p>Sí, todos los planes incluyen exportación de datos en formato CSV y JSON. Los planes Empresa tienen acceso a la API completa para integraciones.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4><i class="fas fa-question-circle"></i> ¿Qué sucede si cancelamos nuestra suscripción?</h4>
+                            <p>Tus datos se conservan por 30 días después de la cancelación, dándote tiempo para exportarlos. Después de ese período, los datos se eliminan permanentemente de nuestros sistemas.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="support">
+                        <h2>Soporte y recursos</h2>
+                        <p>¿Necesitas ayuda adicional? Tenemos múltiples canales de soporte disponibles.</p>
+
+                        <div class="resource-links">
+                            <a href="/contact" class="resource-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contactar soporte</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <i class="fab fa-slack"></i>
+                                <span>Comunidad Slack</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <i class="fas fa-book"></i>
+                                <span>Base de conocimientos</span>
+                            </a>
+                            <a href="#" class="resource-link">
+                                <i class="fas fa-video"></i>
+                                <span>Videos tutoriales</span>
+                            </a>
+                        </div>
+
+                        <div class="highlight-box warning" style="margin-top: 30px;">
+                            <p style="margin-bottom: 10px;"><strong>¿Encontraste un error?</strong></p>
+                            <p style="margin-bottom: 0;">Reporta bugs y problemas técnicos a <a href="mailto:support@kudosforge.com">support@kudosforge.com</a> incluyendo capturas de pantalla y pasos para reproducir el problema.</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <div class="logo">
+                    <i class="fas fa-medal"></i>
+                    <span>KudosForge</span>
+                </div>
+                <p>Fomentamos la gratitud y el reconocimiento en equipos de ingeniería, directamente dentro de Jira.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Producto</h4>
+                    <ul>
+                        <li><a href="/#features">Funcionalidades</a></li>
+                        <li><a href="/#pricing">Precios</a></li>
+                        <li><a href="/docs">Documentación</a></li>
+                        <li><a href="/privacy">Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="/contact">Contacto</a></li>
+                        <li><a href="/terms">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Conectar</h4>
+                    <ul>
+                        <li><a href="mailto:info@kudosforge.com">info@kudosforge.com</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 KudosForge. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const headerHeight = 80;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const sections = document.querySelectorAll('.content-card');
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,40 +1,586 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Políticas de Privacidad y Seguridad | KudosForge</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas de Privacidad y Seguridad | KudosForge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0052CC;
+            --secondary-color: #36B37E;
+            --accent-color: #FFAB00;
+            --dark-color: #172B4D;
+            --light-color: #F4F5F7;
+            --text-color: #42526E;
+            --white: #FFFFFF;
+            --gray: #DFE1E6;
+            --shadow: 0 4px 12px rgba(0, 82, 204, 0.1);
+            --border-radius: 6px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, #F4F5F7 0%, #E6EDFF 100%);
+            padding: 140px 0 60px;
+            margin-top: 80px;
+        }
+
+        .page-hero-content {
+            max-width: 700px;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        /* Content */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .info-item h4 {
+            margin-bottom: 10px;
+        }
+
+        .compliance-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: var(--light-color);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .badge i {
+            color: var(--secondary-color);
+        }
+
+        ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo .logo {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                display: none;
+                z-index: 999;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            .mobile-menu ul {
+                list-style: none;
+            }
+
+            .mobile-menu ul li {
+                margin-bottom: 15px;
+            }
+
+            .mobile-menu ul li a {
+                display: block;
+                padding: 10px;
+                color: var(--dark-color);
+                font-weight: 500;
+            }
+
+            .mobile-menu ul li a:hover {
+                color: var(--primary-color);
+                background-color: var(--light-color);
+                border-radius: var(--border-radius);
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <main class="container" style="padding:120px 20px">
-    <h1>Políticas de Privacidad y Seguridad</h1>
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <i class="fas fa-medal"></i>
+                <span>KudosForge</span>
+            </a>
 
-    <p>En KudosForge, la seguridad de sus datos es nuestra máxima prioridad.</p>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
 
-    <h2>Arquitectura Zero-Trust</h2>
-    <p>
-      Utilizamos Forge de Atlassian. Los datos nunca salen de la infraestructura
-      de Atlassian y no se almacenan en servidores externos.
-    </p>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/#features">Funcionalidades</a></li>
+                    <li><a href="/#pricing">Precios</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+                    <li><a href="/privacy" class="active">Privacidad</a></li>
+                    <li><a href="/terms">Términos</a></li>
+                    <li><a href="/docs">Docs</a></li>
+                </ul>
+            </nav>
+        </div>
 
-    <h2>Cumplimiento Normativo</h2>
-    <p>
-      Diseñado para cumplir con requisitos de sectores regulados como banca,
-      finanzas y seguros.
-    </p>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#features">Funcionalidades</a></li>
+                <li><a href="/#pricing">Precios</a></li>
+                <li><a href="/contact">Contacto</a></li>
+                <li><a href="/privacy">Privacidad</a></li>
+                <li><a href="/terms">Términos</a></li>
+                <li><a href="/docs">Docs</a></li>
+            </ul>
+        </div>
+    </header>
 
-    <h2>Permisos Granulares</h2>
-    <p>
-      Los usuarios solo acceden a información dentro de los proyectos de Jira a
-      los que ya tienen permiso.
-    </p>
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Políticas de Privacidad y Seguridad</h1>
+                <p>La seguridad de sus datos es nuestra máxima prioridad. Conoce cómo protegemos tu información.</p>
+            </div>
+        </div>
+    </section>
 
-    <h2>Privacidad de Datos</h2>
-    <p>
-      Todos los datos se almacenan cifrados y siguen las políticas de privacidad
-      de Atlassian.
-    </p>
-  </main>
+    <section class="content-section">
+        <div class="container">
+            <div class="content-card">
+                <h2>Arquitectura Zero-Trust</h2>
+                <p>En KudosForge, implementamos una arquitectura de seguridad Zero-Trust que garantiza que sus datos nunca salgan de la infraestructura de Atlassian.</p>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Datos en Atlassian</h4>
+                        <p>Utilizamos Forge de Atlassian. Los datos nunca se almacenan en servidores externos a la infraestructura de Atlassian.</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-lock"></i>
+                        <h4>Cifrado Integral</h4>
+                        <p>Todos los datos se almacenan cifrados en reposo y en tránsito utilizando los estándares más altos de seguridad.</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-key"></i>
+                        <h4>Permisos Granulares</h4>
+                        <p>Los usuarios solo acceden a información dentro de los proyectos de Jira a los que ya tienen permiso explícito.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <h2>Cumplimiento Normativo</h2>
+                <p>KudosForge está diseñado para cumplir con los requisitos más estrictos de sectores regulados.</p>
+                <div class="compliance-badges">
+                    <span class="badge"><i class="fas fa-check-circle"></i> SOC 2</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> GDPR</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> HIPAA</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> ISO 27001</span>
+                </div>
+                <h3>Para Sectores Regulados</h3>
+                <ul>
+                    <li><strong>Banca y Finanzas:</strong> Cumplimiento con normativas de seguridad financiera</li>
+                    <li><strong>Salud (HIPAA):</strong> Protección de información de salud protegida</li>
+                    <li><strong>Gobierno:</strong> Estándares de seguridad gubernamental</li>
+                    <li><strong>Seguros:</strong> Requisitos de protección de datos sensibles</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h2>Protección de Datos</h2>
+                <h3>Información que Recopilamos</h3>
+                <ul>
+                    <li>Datos de usuario de Jira (nombre, correo electrónico)</li>
+                    <li>Metadatos de tickets necesarios para el contexto de reconocimiento</li>
+                    <li>Historial de Kudos enviados y recibidos</li>
+                    <li>Estadísticas de uso agregadas y anonimizadas</li>
+                </ul>
+                <h3>Información que NO Recopilamos</h3>
+                <ul>
+                    <li>Contenido de tickets de Jira</li>
+                    <li>Credenciales de acceso de usuarios</li>
+                    <li>Datos personales fuera del alcance de Atlassian</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h2>Derechos del Usuario</h2>
+                <p>Como usuario, tienes los siguientes derechos respecto a tus datos:</p>
+                <ul>
+                    <li><strong>Acceso:</strong> Puedes solicitar una copia de todos los datos que tenemos sobre ti</li>
+                    <li><strong>Rectificación:</strong> Puedes solicitar la corrección de datos incorrectos</li>
+                    <li><strong>Eliminación:</strong> Puedes solicitar la eliminación de todos tus datos</li>
+                    <li><strong>Portabilidad:</strong> Puedes solicitar tus datos en un formato estructurado</li>
+                    <li><strong>Objectión:</strong> Puedes oponerte al procesamiento de tus datos</li>
+                </ul>
+                <p>Para ejercer cualquiera de estos derechos, contacta a <a href="mailto:privacy@kudosforge.com">privacy@kudosforge.com</a></p>
+            </div>
+
+            <div class="content-card">
+                <h2>Política de Retención de Datos</h2>
+                <p>Mantemos los datos durante el período necesario para proporcionar nuestros servicios:</p>
+                <ul>
+                    <li>Datos de cuenta: Durante la vigencia de la suscripción</li>
+                    <li>Historial de Kudos: Durante la vigencia de la suscripción más 12 meses</li>
+                    <li>Logs de acceso: 90 días para seguridad</li>
+                    <li>Datos de soporte: 24 meses después del cierre del ticket</li>
+                </ul>
+            </div>
+
+            <div class="content-card">
+                <h2>Transparencia y Auditoría</h2>
+                <p>KudosForge se compromete a la transparencia en nuestras prácticas de seguridad:</p>
+                <ul>
+                    <li>Logs de auditoría accesibles para administradores</li>
+                    <li>Reportes de incidentes de seguridad en 72 horas</li>
+                    <li>Revisiones de seguridad independientes anuales</li>
+                    <li>Programa de bug bounty para investigadores de seguridad</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <div class="logo">
+                    <i class="fas fa-medal"></i>
+                    <span>KudosForge</span>
+                </div>
+                <p>Fomentamos la gratitud y el reconocimiento en equipos de ingeniería, directamente dentro de Jira.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Producto</h4>
+                    <ul>
+                        <li><a href="/#features">Funcionalidades</a></li>
+                        <li><a href="/#pricing">Precios</a></li>
+                        <li><a href="/docs">Documentación</a></li>
+                        <li><a href="/privacy">Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="/contact">Contacto</a></li>
+                        <li><a href="/terms">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Conectar</h4>
+                    <ul>
+                        <li><a href="mailto:info@kudosforge.com">info@kudosforge.com</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 KudosForge. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
 </body>
+
 </html>

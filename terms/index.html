@@ -1,41 +1,743 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Términos de Servicio | KudosForge</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Servicio | KudosForge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0052CC;
+            --secondary-color: #36B37E;
+            --accent-color: #FFAB00;
+            --dark-color: #172B4D;
+            --light-color: #F4F5F7;
+            --text-color: #42526E;
+            --white: #FFFFFF;
+            --gray: #DFE1E6;
+            --shadow: 0 4px 12px rgba(0, 82, 204, 0.1);
+            --border-radius: 6px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, #F4F5F7 0%, #E6EDFF 100%);
+            padding: 140px 0 60px;
+            margin-top: 80px;
+        }
+
+        .page-hero-content {
+            max-width: 700px;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-top: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .last-updated i {
+            color: var(--secondary-color);
+        }
+
+        /* Content */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .toc {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc ul li {
+            margin-bottom: 10px;
+        }
+
+        .toc ul li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .toc ul li a:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .toc ul li a span {
+            color: var(--primary-color);
+            font-weight: 600;
+            min-width: 25px;
+        }
+
+        ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .highlight-box.warning {
+            border-left-color: #FF5630;
+            background-color: #FFEBE6;
+        }
+
+        .highlight-box.success {
+            border-left-color: var(--secondary-color);
+            background-color: #E3FCEF;
+        }
+
+        .highlight-box.info {
+            border-left-color: var(--primary-color);
+            background-color: #DEEBFF;
+        }
+
+        .table-of-contents {
+            position: sticky;
+            top: 100px;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-logo .logo {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                display: none;
+                z-index: 999;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            .mobile-menu ul {
+                list-style: none;
+            }
+
+            .mobile-menu ul li {
+                margin-bottom: 15px;
+            }
+
+            .mobile-menu ul li a {
+                display: block;
+                padding: 10px;
+                color: var(--dark-color);
+                font-weight: 500;
+            }
+
+            .mobile-menu ul li a:hover {
+                color: var(--primary-color);
+                background-color: var(--light-color);
+                border-radius: var(--border-radius);
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <main class="container" style="padding:120px 20px">
-    <h1>Términos de Servicio</h1>
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <i class="fas fa-medal"></i>
+                <span>KudosForge</span>
+            </a>
 
-    <h2>1. Aceptación de los términos</h2>
-    <p>
-      Al instalar y utilizar KudosForge, usted acepta estos términos.
-    </p>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
 
-    <h2>2. Licencia de uso</h2>
-    <p>
-      Se otorga una licencia no exclusiva y no transferible para usar la app
-      dentro de su instancia de Jira.
-    </p>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/#features">Funcionalidades</a></li>
+                    <li><a href="/#pricing">Precios</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+                    <li><a href="/privacy">Privacidad</a></li>
+                    <li><a href="/terms" class="active">Términos</a></li>
+                    <li><a href="/docs">Docs</a></li>
+                </ul>
+            </nav>
+        </div>
 
-    <h2>3. Facturación</h2>
-    <p>
-      Los planes se facturan mensualmente por usuario. No existen reembolsos por
-      periodos parciales.
-    </p>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#features">Funcionalidades</a></li>
+                <li><a href="/#pricing">Precios</a></li>
+                <li><a href="/contact">Contacto</a></li>
+                <li><a href="/privacy">Privacidad</a></li>
+                <li><a href="/terms">Términos</a></li>
+                <li><a href="/docs">Docs</a></li>
+            </ul>
+        </div>
+    </header>
 
-    <h2>4. Limitación de responsabilidad</h2>
-    <p>
-      KudosForge se entrega “tal cual”, sin garantías implícitas o explícitas.
-    </p>
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>Términos de Servicio</h1>
+                <p>Al utilizar KudosForge, aceptas estos términos y condiciones. Lee cuidadosamente antes de usar nuestros servicios.</p>
+                <div class="last-updated">
+                    <i class="fas fa-calendar-alt"></i>
+                    Última actualización: Enero 2025
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>5. Cambios</h2>
-    <p>
-      Nos reservamos el derecho de modificar estos términos en cualquier momento.
-    </p>
-  </main>
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="toc">
+                    <h3>Índice de contenidos</h3>
+                    <ul>
+                        <li><a href="#acceptance"><span>1.</span> Aceptación de términos</a></li>
+                        <li><a href="#description"><span>2.</span> Descripción del servicio</a></li>
+                        <li><a href="#license"><span>3.</span> Licencia de uso</a></li>
+                        <li><a href="#account"><span>4.</span> Cuentas de usuario</a></li>
+                        <li><a href="#subscription"><span>5.</span> Suscripciones y facturación</a></li>
+                        <li><a href="#acceptable-use"><span>6.</span> Uso aceptable</a></li>
+                        <li><a href="#intellectual-property"><span>7.</span> Propiedad intelectual</a></li>
+                        <li><a href="#data-privacy"><span>8.</span> Privacidad de datos</a></li>
+                        <li><a href="#warranties"><span>9.</span> Garantías y limitaciones</a></li>
+                        <li><a href="#liability"><span>10.</span> Limitación de responsabilidad</a></li>
+                        <li><a href="#termination"><span>11.</span> Terminación</a></li>
+                        <li><a href="#changes"><span>12.</span> Cambios a los términos</a></li>
+                        <li><a href="#contact"><span>13.</span> Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div class="content-card">
+                        <h2 id="acceptance">1. Aceptación de los términos</h2>
+                        <p>Al instalar, acceder o utilizar KudosForge (en adelante, "el Servicio"), usted (en adelante, "el Usuario" o "usted") reconoce que ha leído, comprendido y acepta estar vinculado por estos Términos de Servicio y nuestra Política de Privacidad.</p>
+                        <div class="highlight-box info">
+                            <p style="margin-bottom: 0;"><strong>Nota:</strong> Si está utilizando KudosForge en nombre de una empresa u organización, usted declara que tiene la autoridad para vincular a dicha entidad a estos términos.</p>
+                        </div>
+
+                        <h2 id="description">2. Descripción del servicio</h2>
+                        <p>KudosForge es una aplicación de reconocimiento de empleados integrada con Atlassian Jira. El Servicio permite a los usuarios enviar "Kudos" (reconocimientos) directamente desde tickets de Jira, fomentando una cultura de gratitud y reconocimiento en equipos de ingeniería.</p>
+                        <p>El Servicio se proporciona a través de la plataforma Forge de Atlassian y está sujeto a los términos de servicio de Atlassian.</p>
+
+                        <h2 id="license">3. Licencia de uso</h2>
+                        <p>Sujeto a estos términos, KudosForge le otorga una licencia:</p>
+                        <ul>
+                            <li><strong>No exclusiva:</strong> Puede utilizar el Servicio, pero no es el único que puede hacerlo</li>
+                            <li><strong>No transferible:</strong> No puede ceder ni transferir sus derechos a terceros</li>
+                            <li><strong>Revocable:</strong> Podemos revocar esta licencia en cualquier momento</li>
+                            <li><strong>Limitada:</strong> Solo para uso dentro de su instancia de Jira</li>
+                        </ul>
+
+                        <h2 id="account">4. Cuentas de usuario</h2>
+                        <p>Para utilizar KudosForge, debe:</p>
+                        <ul>
+                            <li>Tener una cuenta válida en Atlassian con acceso a Jira</li>
+                            <li>Mantenerse responsable de todas las actividades realizadas bajo su cuenta</li>
+                            <li>Notificarnos inmediatamente cualquier uso no autorizado de su cuenta</li>
+                            <li>Proporcionar información precisa y actualizada</li>
+                        </ul>
+
+                        <h2 id="subscription">5. Suscripciones y facturación</h2>
+                        <h3>5.1 Planes disponibles</h3>
+                        <ul>
+                            <li><strong>Gratis:</strong> Hasta 10 usuarios, funcionalidades básicas</li>
+                            <li><strong>Equipo:</strong> 11-100 usuarios, funcionalidades completas</li>
+                            <li><strong>Empresa:</strong> 100+ usuarios, precio por volumen</li>
+                        </ul>
+
+                        <h3>5.2 Facturación</h3>
+                        <ul>
+                            <li>Los planes de pago se facturan mensualmente</li>
+                            <li>El cobro se realiza por usuario activo</li>
+                            <li>Los precios pueden cambiar con previo aviso de 30 días</li>
+                        </ul>
+
+                        <div class="highlight-box warning">
+                            <p style="margin-bottom: 0;"><strong>No hay reembolsos:</strong> No se ofrecen reembolsos por períodos parciales o cancelaciones anticipadas.</p>
+                        </div>
+
+                        <h3>5.3 Actualizaciones y rebajas</h3>
+                        <ul>
+                            <li>Puede actualizar su plan en cualquier momento</li>
+                            <li>Los cambios de plan toman efecto inmediatamente</li>
+                            <li>Los cambios a planes inferiores toman efecto al siguiente ciclo de facturación</li>
+                        </ul>
+
+                        <h2 id="acceptable-use">6. Uso aceptable</h2>
+                        <p>Usted se compromete a NO usar el Servicio para:</p>
+                        <ul>
+                            <li>Violar cualquier ley o regulación aplicable</li>
+                            <li>Infringir los derechos de propiedad intelectual de terceros</li>
+                            <li>Enviar contenido difamatorio, ofensivo o inapropiado</li>
+                            <li>Utilizar el Servicio para actividades fraudulentas</li>
+                            <li>Interferir con el funcionamiento del Servicio</li>
+                            <li>Intentar acceder a sistemas o datos no autorizados</li>
+                            <li>Utilizar el Servicio de manera que dañe nuestra reputación</li>
+                        </ul>
+
+                        <div class="highlight-box warning">
+                            <p style="margin-bottom: 0;"><strong>Consecuencias:</strong> El incumplimiento de estas normas puede resultar en la suspensión o terminación inmediata de su cuenta.</p>
+                        </div>
+
+                        <h2 id="intellectual-property">7. Propiedad intelectual</h2>
+                        <h3>7.1 Derechos de KudosForge</h3>
+                        <p>KudosForge y todos sus componentes (código, diseño, logotipo, marcas) son propiedad de KudosForge o sus licenciantes. Todos los derechos están reservados.</p>
+
+                        <h3>7.2 Contenido del usuario</h3>
+                        <p>Usted conserva la propiedad del contenido que envía a través del Servicio (mensajes de reconocimiento, nombres de usuarios). Nos otorga una licencia para usar, mostrar y transmitir dicho contenido únicamente para proporcionar el Servicio.</p>
+
+                        <h3>7.3 Datos agregados</h3>
+                        <p>Podemos utilizar datos agregados y anonimizados para mejorar el Servicio y crear análisis, sin revelar información personal identificable.</p>
+
+                        <h2 id="data-privacy">8. Privacidad de datos</h2>
+                        <p>Su privacidad es importante para nosotros. Nuestra recopilación y uso de información está governed por nuestra <a href="/privacy">Política de Privacidad</a>, que se incorpora a estos términos por referencia.</p>
+                        <p>El Servicio utiliza la infraestructura de Atlassian Forge, lo que significa que los datos nunca salen de la infraestructura de Atlassian.</p>
+
+                        <h2 id="warranties">9. Garantías</h2>
+                        <div class="highlight-box">
+                            <p style="margin-bottom: 0;"><strong>EL SERVICIO SE PROPORCIONA "TAL CUAL" Y "SEGÚN DISPONIBILIDAD".</strong> No garantizamos que el Servicio sea ininterrumpido, puntual, seguro o libre de errores.</p>
+                        </div>
+                        <p>KudosForge NO ofrece garantías implícitas de:</p>
+                        <ul>
+                            <li>Comerciabilidad</li>
+                            <li>Idoneidad para un propósito particular</li>
+                            <li>No infracción</li>
+                            <li>Resultados específicos del uso del Servicio</li>
+                        </ul>
+
+                        <h2 id="liability">10. Limitación de responsabilidad</h2>
+                        <p>EN LA MEDIDA MÁXIMA PERMITIDA POR LA LEY:</p>
+                        <ul>
+                            <li><strong>KudosForge no será responsable</strong> por daños indirectos, incidentales, especiales, consecuenciales o punitivos</li>
+                            <li><strong>Nuestra responsabilidad total</strong> no excederá el monto que usted nos haya pagado en los 12 meses anteriores al evento</li>
+                            <li><strong>No seremos responsables</strong> por pérdida de datos, pérdida de beneficios, interrupción del negocio o cualquier otra pérdida</li>
+                        </ul>
+
+                        <div class="highlight-box warning">
+                            <p style="margin-bottom: 0;"><strong>Excepciones:</strong> Estas limitaciones no se aplican a responsabilidades que no puedan ser excluidas por ley, ni a nuestra responsabilidad por fraude o conducta dolosa.</p>
+                        </div>
+
+                        <h2 id="termination">11. Terminación</h2>
+                        <h3>11.1 Terminación por el Usuario</h3>
+                        <p>Puede cancelar su suscripción en cualquier momento a través de su panel de administración de Atlassian o contactándonos.</p>
+
+                        <h3>11.2 Terminación por KudosForge</h3>
+                        <p>Podemos suspender o terminar su acceso al Servicio si:</p>
+                        <ul>
+                            <li>Incumple estos términos de servicio</li>
+                            <li>No paga las tarifas correspondientes</li>
+                            <li>Utiliza el Servicio de manera abusiva o ilegal</li>
+                            <li>El Servicio es descontinuado</li>
+                        </ul>
+
+                        <h3>11.3 Efectos de la terminación</h3>
+                        <ul>
+                            <li>Su acceso al Servicio se detendrá inmediatamente</li>
+                            <li>Nous reserve el derecho de eliminar sus datos después de 30 días</li>
+                            <li>Las disposiciones que por naturaleza deberían sobrevivir (propiedad intelectual, limitaciones de responsabilidad) seguirán vigentes</li>
+                        </ul>
+
+                        <h2 id="changes">12. Cambios a los términos</h2>
+                        <p>Podemos modificar estos términos en cualquier tiempo. Los cambios entrarán en vigor:</p>
+                        <ul>
+                            <li>Inmediatamente para nuevos usuarios</li>
+                            <li>30 días después de la notificación para usuarios existentes</li>
+                        </ul>
+                        <div class="highlight-box info">
+                            <p style="margin-bottom: 0;"><strong>Notificación:</strong> Publicaremos los cambios en esta página y/notificaremos a través del Servicio. Su uso continuado después de los cambios constituye la aceptación de los nuevos términos.</p>
+                        </div>
+
+                        <h2 id="contact">13. Información de contacto</h2>
+                        <p>Para preguntas sobre estos términos:</p>
+                        <ul>
+                            <li><strong>Email:</strong> <a href="mailto:legal@kudosforge.com">legal@kudosforge.com</a></li>
+                            <li><strong>Dirección:</strong> [Dirección de la empresa]</li>
+                        </ul>
+
+                        <div class="highlight-box success">
+                            <p style="margin-bottom: 0; font-weight: 500;">¿Tiene preguntas? Nuestro equipo está listo para ayudarlo. <a href="/contact">Contáctenos</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <div class="logo">
+                    <i class="fas fa-medal"></i>
+                    <span>KudosForge</span>
+                </div>
+                <p>Fomentamos la gratitud y el reconocimiento en equipos de ingeniería, directamente dentro de Jira.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Producto</h4>
+                    <ul>
+                        <li><a href="/#features">Funcionalidades</a></li>
+                        <li><a href="/#pricing">Precios</a></li>
+                        <li><a href="/docs">Documentación</a></li>
+                        <li><a href="/privacy">Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="/contact">Contacto</a></li>
+                        <li><a href="/terms">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Conectar</h4>
+                    <ul>
+                        <li><a href="mailto:info@kudosforge.com">info@kudosforge.com</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 KudosForge. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = 80;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
 </body>
+
 </html>
